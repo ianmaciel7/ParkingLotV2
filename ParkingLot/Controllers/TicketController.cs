@@ -54,7 +54,7 @@ namespace CarParking.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult Post(TicketInputModel model)
+        public IHttpActionResult Post([FromBody]TicketInputModel model)
         {
             try
             {

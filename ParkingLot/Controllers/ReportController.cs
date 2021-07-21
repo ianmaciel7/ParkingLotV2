@@ -11,9 +11,9 @@ namespace CarParking.Controllers
     {
         private readonly ParkingLotService _parkingLotService;
 
-        public ReportController(ParkingLotService parkingLotService)
+        public ReportController()
         {
-            _parkingLotService = parkingLotService;
+            _parkingLotService = new ParkingLotService();
 
         }
 
