@@ -26,7 +26,7 @@ namespace CarParking.Controllers
         {
             try
             {
-                return Content(HttpStatusCode.BadRequest, "Database Failure"); ;
+                return Ok(_parkingLotService.AllParkingSpaces());
             }
             catch (EmptyListException)
             {
