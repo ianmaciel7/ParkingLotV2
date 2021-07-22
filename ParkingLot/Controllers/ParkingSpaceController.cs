@@ -39,7 +39,7 @@ namespace CarParking.Controllers
         }
 
         [HttpPatch()]
-        public IHttpActionResult Patch([FromUri]int ticketId)
+        public IHttpActionResult Patch(int ticketId)
         {
             try
             {

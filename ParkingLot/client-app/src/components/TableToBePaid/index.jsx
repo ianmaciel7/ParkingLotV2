@@ -44,6 +44,17 @@ export default function TableFinancialGain(props) {
     setPage(0);
   };
 
+  function defineVehicleType(vehicleType) {
+    switch (vehicleType) {
+      case 0:
+        return "Carro";
+      case 1:
+        return "Moto";
+      default:
+        return "Tipo Inválido";
+    }
+  }
+
   return (
     <>
       <TableContainer className={classes.container}>
@@ -78,13 +89,13 @@ export default function TableFinancialGain(props) {
             ).map((row, index) => (
               <TableRow key={index}>
                 <TableCell component="th" scope="row">
-                  {row.ticketId}
+                  {row.TicketId}
                 </TableCell>
                 <TableCell component="th" scope="row">
-                  {row.vehicleType}
+                  {defineVehicleType(row.VehicleType)}
                 </TableCell>
                 <TableCell component="th" scope="row">
-                  {new Date(row.arrivalTime).toLocaleString("pt-Br")}
+                  {new Date(row.ArrivalTime).toLocaleString("pt-Br")}
                 </TableCell>
               </TableRow>
             ))}

@@ -82,7 +82,7 @@ namespace CarParking.Controllers
             }
             catch (ExceededTheLimitException ex)
             {
-                return Content(HttpStatusCode.BadRequest, ex.Message);               
+                return Content((HttpStatusCode) 507, ex.Message);               
             }
             catch (Exception)
             {
@@ -91,11 +91,11 @@ namespace CarParking.Controllers
         }
 
         [HttpPatch]
-        public IHttpActionResult Patch([FromUri] int ticketId)
+        public IHttpActionResult Patch(int ticketId)
         {
             try
             {
-                var result = _parkingLotService.UpdatePaymentStatusInTicket(ticketId);
+                 var result = _parkingLotService.UpdatePaymentStatusInTicket(ticketId);
                 return Ok(result);
             }
             catch (TicketNotFoundException ex)

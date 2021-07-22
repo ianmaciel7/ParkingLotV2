@@ -100,7 +100,7 @@ namespace CarParking.Services
             var groupUnpaid = _parkingLotRepository.AllTicket()
            .Where(t => t.PaymentStatus == PaymentStatus.UNPAID);
 
-            viewModel.listUnpaid = groupUnpaid.ToList();
+            viewModel.ListUnpaid = groupUnpaid.ToList();
             return viewModel;
 
         }

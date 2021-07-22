@@ -1,13 +1,10 @@
 ﻿import React, { useState, useEffect } from "react";
 import API from "../services/API";
 
-
-
 export const useReportGet = () => {
-
   const initialState = {
-    listPaid: [{}],
-    listUnpaid: [{}],
+    ListPaid: [{}],
+    ListUnpaid: [{}],
   };
 
   const [report, setReport] = useState(initialState);
@@ -15,9 +12,10 @@ export const useReportGet = () => {
   const [error, setError] = useState(false);
 
   const getReport = async () => {
+    setLoading(true);
     try {
       setError(false);
-      setLoading(true);
+
       const response = await API.getReport();
       //console.log(response);
       setReport(response);
@@ -27,8 +25,8 @@ export const useReportGet = () => {
     setLoading(false);
   };
 
-  useEffect(() => {
-    getReport();
+  useEffect(async () => {
+    await getReport();
   }, []);
 
   return {
@@ -37,5 +35,3 @@ export const useReportGet = () => {
     error,
   };
 };
-
-

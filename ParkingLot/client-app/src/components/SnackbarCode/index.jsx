@@ -8,7 +8,7 @@ import {
   MESSAGE_400,
   MESSAGE_507,
   MESSAGE_PATCH,
-  MESSAGE_404
+  MESSAGE_404,
 } from "../../helpers/message";
 
 function Alert(props) {
@@ -33,7 +33,7 @@ export default function SnackbarCode(props) {
   const [message, setMessage] = React.useState();
 
   useEffect(() => {
-    console.log(code);
+    //console.log(code);
     switch (code) {
       case 200:
         setMessage(MESSAGE_PATCH);
@@ -43,7 +43,7 @@ export default function SnackbarCode(props) {
         break;
       case 404:
         setMessage(MESSAGE_404);
-        break
+        break;
       case 507:
         setMessage(MESSAGE_507);
         break;

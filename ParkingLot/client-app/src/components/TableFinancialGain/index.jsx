@@ -80,10 +80,10 @@ export default function TableFinancialGain(props) {
             ).map((row, index) => (
               <TableRow key={index}>
                 <TableCell component="th" scope="row">
-                  {new Date(row.date).toLocaleString("pt-Br")}
+                  {new Date(row.Date).toLocaleString("pt-Br")}
                 </TableCell>
                 <TableCell component="th" scope="row">
-                  R$ {row.financialGain}
+                  R$ {row.FinancialGain}
                 </TableCell>
               </TableRow>
             ))}

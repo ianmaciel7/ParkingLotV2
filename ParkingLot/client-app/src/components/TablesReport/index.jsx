@@ -17,20 +17,19 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 export default function TablesReport() {
   const { report, loading, error } = useReportGet();
 
-  console.log(report);
-
   if (loading === false && error === false) {
+    //console.log(report);
     return (
       <Grid container spacing={5}>
         <Grid item xs={12} md={6}>
           <Box boxShadow={1}>
-            <TableFinancialGain rows={report.listPaid} />
+            <TableFinancialGain rows={report.ListPaid} />
           </Box>
         </Grid>
 
         <Grid item xs={12} md={6}>
           <Box boxShadow={1}>
-            <TableToBePaid rows={report.listUnpaid} />
+            <TableToBePaid rows={report.ListUnpaid} />
           </Box>
         </Grid>
       </Grid>

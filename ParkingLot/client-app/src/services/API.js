@@ -1,17 +1,11 @@
 import { API_URL } from "../helpers/config";
 
-function defaultConfig(
-  method,
-  contentType = "application/json; charset=utf-8"
-) {
+function defaultConfig(method, contentType = "application/json") {
   return {
     method: method.toUpperCase(),
-    
     headers: {
-      Accept: contentType,
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, PUT, POST, DELETE, HEAD, OPTIONS",
-      "Access-Control-Expose-Headers": "*"
+      Accept: "application/json",
+      "Content-Type": contentType.toLowerCase(),
     },
   };
 }
@@ -40,7 +34,7 @@ const apiSettings = {
   },
 
   patchParkingSpace: async (ticketId) => {
-    const endpoint = `${API_URL}/ParkingSpace/${ticketId}`;
+    const endpoint = `${API_URL}/ParkingSpace/?ticketId=${ticketId}`;
 
     return await fetch(endpoint, {
       ...defaultConfig("patch", "text/plain"),
@@ -50,7 +44,7 @@ const apiSettings = {
   },
 
   patchTicket: async (ticketId) => {
-    const endpoint = `${API_URL}/Ticket/${ticketId}`;
+    const endpoint = `${API_URL}/Ticket/?ticketId=${ticketId}`;
 
     return await fetch(endpoint, {
       ...defaultConfig("patch", "text/plain"),
